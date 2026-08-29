@@ -1,0 +1,32 @@
+{
+  "name": "Whitelist",
+  "type": "object",
+  "properties": {
+    "guild_id": {
+      "type": "string",
+      "title": "Guild ID"
+    },
+    "discord_id": {
+      "type": "string",
+      "title": "Discord ID (user or role)"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "user",
+        "role"
+      ],
+      "title": "Type",
+      "default": "user"
+    },
+    "name": {
+      "type": "string",
+      "title": "Display Name",
+      "default": ""
+    },
+    "scope": {
+      "type": "string",
+      "enum": [
+        "all",
+        "anti_nuke",
+        "anti_raid",

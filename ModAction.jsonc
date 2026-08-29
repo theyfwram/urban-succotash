@@ -1,0 +1,32 @@
+{
+  "name": "ModAction",
+  "type": "object",
+  "properties": {
+    "guild_id": {
+      "type": "string",
+      "title": "Guild ID"
+    },
+    "action": {
+      "type": "string",
+      "enum": [
+        "ban",
+        "kick",
+        "mute",
+        "lock",
+        "unban",
+        "unmute",
+        "unlock"
+      ],
+      "title": "Action"
+    },
+    "target_id": {
+      "type": "string",
+      "title": "Target ID (user or channel)",
+      "default": ""
+    },
+    "target_name": {
+      "type": "string",
+      "title": "Target Name",
+      "default": ""
+    },
+    "moderator_id": {

@@ -1,0 +1,32 @@
+import { secrets } from "base44:runtime";
+import { createClientFromRequest } from "npm:@base44/sdk@0.8.44";
+import { DISCORD_API, GUILD_IDS } from "../../shared/constants.js";
+import { getDiscordUser, isGuildAdmin } from "../../shared/discordAdmin.js";
+
+// Discord OAuth2 login + admin verification for the dashboard.
+export default async function (req) {
+  try {
+    const body = await req.json().catch(() => ({}));
+    const action = body.action || "authParams";
+
+    if (action === "authParams") {
+      return Response.json({
+        clientId: secrets.get("DISCORD_APP_ID"),
+        guildIds: GUILD_IDS,
+        scopes: "identify guilds guilds.members.read"
+      });
+    }
+
+    if (action === "exchange") {
+      const { code, redirectUri } = body;
+      if (!code || !redirectUri) return Response.json({ error: "Missing code or redirectUri" }, { status: 400 });
+      const clientId = secrets.get("DISCORD_APP_ID");
+      const clientSecret = secrets.get("DISCORD_CLIENT_SECRET");
+      if (!clientId || !clientSecret) return Response.json({ error: "Discord OAuth secrets not configured" }, { status: 500 });
+
+      const form = new URLSearchParams({
+        client_id: clientId,
+        client_secret: clientSecret,
+        grant_type: "authorization_code",
+        code,
+        redirect_uri: redirectUri

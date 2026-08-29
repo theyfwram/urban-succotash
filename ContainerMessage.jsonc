@@ -1,0 +1,32 @@
+{
+  "name": "ContainerMessage",
+  "type": "object",
+  "properties": {
+    "guild_id": {
+      "type": "string",
+      "title": "Guild ID"
+    },
+    "key": {
+      "type": "string",
+      "title": "Message Key",
+      "description": "Identifier: welcome, ban, kick, mute, lock, unban, raid, nuke, beast"
+    },
+    "title": {
+      "type": "string",
+      "title": "Title",
+      "default": ""
+    },
+    "description": {
+      "type": "string",
+      "title": "Description (Markdown)",
+      "default": ""
+    },
+    "footer": {
+      "type": "string",
+      "title": "Footer",
+      "default": ""
+    },
+    "color": {
+      "type": "number",
+      "title": "Accent Color (RGB integer)",
+      "default": 5814273
