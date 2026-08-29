@@ -1,0 +1,32 @@
+{
+  "name": "AuditLog",
+  "type": "object",
+  "properties": {
+    "guild_id": {
+      "type": "string",
+      "title": "Guild ID"
+    },
+    "event": {
+      "type": "string",
+      "title": "Event Type",
+      "description": "member_join, member_leave, ban, kick, mute, lock, channel_delete, role_delete, raid, nuke, beast, config_change"
+    },
+    "actor_id": {
+      "type": "string",
+      "title": "Actor ID",
+      "default": ""
+    },
+    "actor_name": {
+      "type": "string",
+      "title": "Actor Name",
+      "default": ""
+    },
+    "target_id": {
+      "type": "string",
+      "title": "Target ID",
+      "default": ""
+    },
+    "target_name": {
+      "type": "string",
+      "title": "Target Name",
+      "default": ""

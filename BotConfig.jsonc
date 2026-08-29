@@ -1,0 +1,32 @@
+{
+  "name": "BotConfig",
+  "type": "object",
+  "properties": {
+    "guild_id": {
+      "type": "string",
+      "title": "Guild ID"
+    },
+    "enabled": {
+      "type": "boolean",
+      "title": "Bot Enabled",
+      "default": true
+    },
+    "welcome": {
+      "type": "object",
+      "title": "Welcome System",
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "default": false
+        },
+        "channel_id": {
+          "type": "string",
+          "default": ""
+        },
+        "message_key": {
+          "type": "string",
+          "default": "welcome"
+        },
+        "assign_auto_role": {
+          "type": "boolean",
+          "default": false
